@@ -128,23 +128,21 @@
 /* Luxury Glassmorphism & Atmospheric Custom Keyframes */
 @keyframes float-drift {
   0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
-  50% { transform: translateY(-24px) rotate(15deg); opacity: 0.55; }
+  50% { transform: translateY(-20px) rotate(15deg); opacity: 0.5; }
   100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
 }
 
 @keyframes spark-pulse {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.12); }
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.1); }
 }
 
 @keyframes perimeter-glow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.25), inset 0 0 10px rgba(239, 68, 68, 0.1);
-    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
   }
   50% {
-    box-shadow: 0 0 35px rgba(239, 68, 68, 0.65), inset 0 0 18px rgba(239, 68, 68, 0.25);
-    border-color: rgba(239, 68, 68, 0.85);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
   }
 }
 

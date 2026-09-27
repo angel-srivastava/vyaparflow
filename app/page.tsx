@@ -595,13 +595,11 @@ export default function Page() {
 
       {/* 3. FLOATING COMMAND DOCK (BOTTOM VOICE & TEXT BAR) */}
       <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 px-3 sm:bottom-6 sm:px-6">
-        <div className="pointer-events-auto mx-auto max-w-[920px] rounded-2xl border border-white/[0.12] bg-slate-950/85 p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.7)] backdrop-blur-3xl ring-1 ring-white/[0.05] transition-all duration-300 hover:border-white/[0.22] sm:p-3">
+        <div className="pointer-events-auto mx-auto max-w-[920px] rounded-2xl border border-white/[0.12] bg-white/[0.06] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-3xl transition-all duration-300 hover:border-white/[0.22] sm:p-3">
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Voice Mic Button with animated ripple sonar ring */}
-            <div className="relative">
-              {listening && (
-                <span className="absolute inset-0 rounded-xl bg-rose-500/50 animate-[sonar-ring_2s_cubic-bezier(0,0,0.2,1)_infinite]" />
-              )}
+            {/* Voice Mic Button with animated ripple sonar ring when active or hovered */}
+            <div className="group relative">
+              <span className={`pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/40 transition-opacity duration-300 ${listening ? 'bg-rose-500/50 opacity-100 animate-[sonar-ring_2s_cubic-bezier(0,0,0.2,1)_infinite]' : 'opacity-0 group-hover:opacity-100 group-hover:animate-[sonar-ring_2s_cubic-bezier(0,0,0.2,1)_infinite]'}`} />
               <button
                 onClick={startSpeech}
                 aria-label={listening ? 'Stop voice capture' : 'Start voice capture'}
@@ -811,11 +809,11 @@ function Metric({
     ? `${liquidityGlow || 'animate-[neon-pulse-amber_3s_ease-in-out_infinite] border-amber-400/50 bg-amber-500/10'} shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]`
     : alert
     ? 'border-rose-500/40 bg-rose-950/20 shadow-[0_8px_32px_0_rgba(244,63,94,0.25)] ring-1 ring-rose-500/20'
-    : 'border-white/[0.08] bg-white/[0.03] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] hover:border-white/[0.2]'
+    : 'border-white/[0.08] bg-white/[0.04] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] hover:border-white/[0.18]'
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl border p-4 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/[0.08] before:to-transparent ${cardStyling}`}
+      className={`group relative overflow-hidden rounded-2xl border p-4 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/10 before:to-transparent ${cardStyling}`}
     >
       <div className="relative z-10 mb-3 flex items-center justify-between gap-1.5">
         <span className="truncate text-[10px] font-bold uppercase tracking-[0.08em] text-slate-400">
@@ -873,7 +871,7 @@ function TaskCard({ task, member, onStatus }: { task: Task; member?: Member; onS
   return (
     <motion.article
       layout
-      className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-200 ease-out hover:-translate-y-1.5 hover:border-white/[0.22] hover:shadow-[0_16px_40px_rgba(0,0,0,0.6)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/[0.07] before:to-transparent"
+      className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] p-4 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-200 ease-out hover:-translate-y-1.5 hover:border-white/[0.18] hover:shadow-2xl before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:to-transparent"
     >
       <div className="relative z-10 mb-2.5 flex items-start justify-between gap-3">
         <h3 className="text-[13px] font-semibold leading-[1.5] text-slate-100 transition-colors group-hover:text-white">
@@ -936,12 +934,12 @@ function TaskCard({ task, member, onStatus }: { task: Task; member?: Member; onS
           <option value="Completed" className="bg-slate-900 text-white">Completed</option>
         </select>
 
-        {/* Vibrant WhatsApp Action Button */}
+        {/* Vibrant WhatsApp Action Pill Button */}
         <a
           href={whatsapp}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-green-600 px-2.5 py-1.5 text-[10px] font-bold text-white shadow-lg shadow-emerald-950/60 transition-all hover:brightness-110 active:scale-95"
+          className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-3 py-1.5 text-[10px] font-bold text-white shadow-lg shadow-emerald-900/30 transition-all hover:brightness-110 active:scale-95"
         >
           <MessageCircle size={13} /> Ping on WhatsApp
         </a>
