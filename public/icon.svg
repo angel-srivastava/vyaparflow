@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep slate to rich indigo & dark emerald -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="48%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#064E3B" />
+    </linearGradient>
+
+    <!-- Indigo Flow Arc Gradient -->
+    <linearGradient id="indigoFlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="60%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+
+    <!-- Emerald Flow Arc Gradient -->
+    <linearGradient id="emeraldFlow" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Radial Glow behind Rupee -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.3" />
+      <stop offset="60%" stop-color="#10B981" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Drop Shadow for Rupee Symbol -->
+    <filter id="glyphShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Badge Base -->
+  <circle cx="256" cy="256" r="244" fill="url(#bgGrad)" stroke="#312E81" stroke-width="4" />
+  <circle cx="256" cy="256" r="236" fill="url(#centerGlow)" />
+
+  <!-- Orbital Flow Track Subtle Ring -->
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#475569" stroke-width="2" stroke-opacity="0.4" stroke-dasharray="5 6" />
+
+  <!-- Circular Flow Arc 1: Indigo Wave (Top Half, Clockwise) -->
+  <path d="M 104 256 A 152 152 0 0 1 408 256" fill="none" stroke="url(#indigoFlow)" stroke-width="22" stroke-linecap="round" />
+  <polygon points="408,280 393,248 423,248" fill="#818CF8" />
+  <circle cx="256" cy="104" r="6" fill="#C7D2FE" />
+
+  <!-- Circular Flow Arc 2: Emerald Wave (Bottom Half, Clockwise) -->
+  <path d="M 408 256 A 152 152 0 0 1 104 256" fill="none" stroke="url(#emeraldFlow)" stroke-width="22" stroke-linecap="round" />
+  <polygon points="104,232 89,264 119,264" fill="#34D399" />
+  <circle cx="256" cy="408" r="6" fill="#A7F3D0" />
+
+  <!-- Center Shield Disc -->
+  <circle cx="256" cy="256" r="136" fill="#0B0F19" fill-opacity="0.88" stroke="#334155" stroke-width="2.5" />
+
+  <!-- Styled High-Contrast Indian Rupee Glyph (₹) -->
+  <g filter="url(#glyphShadow)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top Horizontal Bar (Shirorekha) -->
+    <line x1="182" y1="162" x2="330" y2="162" stroke-width="32" />
+    
+    <!-- Second Horizontal Bar -->
+    <line x1="182" y1="226" x2="294" y2="226" stroke-width="32" />
+
+    <!-- Rupee Loop and Diagonal Sweep Leg -->
+    <path d="M 230 162 C 320 162, 320 286, 230 286 L 326 386" fill="none" stroke-width="32" />
+  </g>
+
+  <!-- Dynamic Energy Flow Nodes -->
+  <circle cx="330" cy="162" r="5" fill="#38BDF8" />
+  <circle cx="326" cy="386" r="5" fill="#34D399" />
+</svg>
